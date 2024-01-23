@@ -1,5 +1,13 @@
 {
   "manifest_version": 3,
   "name": "chrome-extension-template",
-  "version": "0.0.1"
+  "description": "A template for building Chrome extensions with TypeScript, Vite, Solid.js and Tailwind CSS.",
+  "version": "0.0.1",
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_popup": "index.html"
+  }
 }

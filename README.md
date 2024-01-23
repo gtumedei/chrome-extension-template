@@ -4,6 +4,12 @@ A template for building Chrome extensions with TypeScript, Vite, Solid.js and Ta
 
 ## Getting started
 
+- Clone the repo and `npm i`
+- Start the dev server with `npm run dev`
+  - Or, test the extension popup in the browser with hot reload using `npm run dev:browser`
+- Load the unpacked extension from [chrome://extensions](chrome://extensions), selecting the `dist` folder in the repo
+- After each change, the extension is automatically rebuilt, but must be reloaded by clicking on the reload icon in the extensions page
+
 ## Useful links
 
 - [Chrome manifest file format](https://developer.chrome.com/docs/extensions/reference/manifest)
@@ -11,4 +17,6 @@ A template for building Chrome extensions with TypeScript, Vite, Solid.js and Ta
 
 ## TODO
 
-- Add Tailwind
+- Add an example of manipulating the active tab
+- Add an example of running a background script
+- Add button to open window as a popup
