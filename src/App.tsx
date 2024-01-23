@@ -2,8 +2,34 @@ import { createSignal } from "solid-js"
 import solidLogo from "./assets/solid.svg"
 import viteLogo from "/vite.svg"
 
+const btnClass =
+  "font-medium bg-slate-200 dark:bg-slate-600 rounded-lg px-4 py-2 border border-transparent hover:border-purple-600 cursor-pointer transition-colors"
+
 function App() {
   const [count, setCount] = createSignal(0)
+
+  const sayHello = async () => {
+    const [tab] = await chrome.tabs.query({ active: true })
+    console.log(tab)
+    if (!tab.id) return
+    chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      func: () => {
+        alert(`Hello "${document.title}" from "chrome-extension-template"!`)
+      },
+    })
+  }
+
+  const popout = async () => {
+    await chrome.windows.create({
+      url: chrome.runtime.getURL("index.html"),
+      type: "popup",
+      focused: true,
+      height: 542,
+      width: 384,
+    })
+    window.close()
+  }
 
   return (
     <main class="w-full flex flex-col justify-center items-center text-center p-6">
@@ -24,14 +50,19 @@ function App() {
         </a>
       </div>
       <h1 class="text-xl font-bold my-12">Vite + Solid</h1>
-      <button
-        class="font-medium bg-slate-200 dark:bg-slate-600 rounded-lg px-4 py-2 border border-transparent hover:border-purple-600 cursor-pointer transition-colors mb-4"
-        onClick={() => setCount((count) => count + 1)}
-      >
-        count is {count()}
-      </button>
+      <div class="flex gap-2 mb-4">
+        <button class={btnClass} onClick={() => setCount((count) => count + 1)}>
+          Count is {count()}
+        </button>
+        <button class={btnClass} onClick={sayHello}>
+          Say hello
+        </button>
+        <button class={btnClass} onClick={popout}>
+          Popout
+        </button>
+      </div>
       <p class="mb-12">
-        Edit <code>src/App.tsx</code> and save to test HMR
+        Edit <code>src/App.tsx</code>, save and reload the extension
       </p>
       <p class="text-sm opacity-50">Click on the Vite and Solid logos to learn more</p>
     </main>

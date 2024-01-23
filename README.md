@@ -17,6 +17,4 @@ A template for building Chrome extensions with TypeScript, Vite, Solid.js and Ta
 
 ## TODO
 
-- Add an example of manipulating the active tab
-- Add an example of running a background script
-- Add button to open window as a popup
+- Find a way to write service workers in TypeScript

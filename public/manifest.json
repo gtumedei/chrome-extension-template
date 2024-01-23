@@ -9,5 +9,10 @@
   },
   "action": {
     "default_popup": "index.html"
-  }
+  },
+  "background": {
+    "service_worker": "sw.js"
+  },
+  "permissions": ["scripting"],
+  "host_permissions": ["http://*/*", "https://*/*"]
 }
