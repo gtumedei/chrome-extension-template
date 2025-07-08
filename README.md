@@ -1,6 +1,6 @@
 # chrome-extension-template
 
-A template for building Chrome extensions with Deno, TypeScript, Vite, Solid.js, and Tailwind CSS.
+A template for building Chrome extensions with Deno, TypeScript, Vite, Solid.js, and Tailwind CSS. For a Node-based version, check out the [node](https://github.com/gtumedei/chrome-extension-template/tree/node) branch.
 
 ## Getting started
 
