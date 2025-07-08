@@ -1,6 +1,7 @@
 {
+  "$schema": "https://json.schemastore.org/chrome-manifest",
   "manifest_version": 3,
-  "name": "chrome-extension-template",
+  "name": "Chrome Extension Template",
   "description": "A template for building Chrome extensions with TypeScript, Vite, Solid.js and Tailwind CSS.",
   "version": "0.0.1",
   "icons": {

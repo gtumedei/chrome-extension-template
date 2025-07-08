@@ -1,6 +1,7 @@
 import { createSignal } from "solid-js"
-import solidLogo from "./assets/solid.svg"
+import solidLogo from "~/assets/solid.svg"
 import viteLogo from "/vite.svg"
+import denoLogo from "/deno.svg"
 
 const btnClass =
   "font-medium bg-slate-200 dark:bg-slate-600 rounded-lg px-4 py-2 border border-transparent hover:border-purple-600 cursor-pointer transition-colors"
@@ -28,12 +29,19 @@ function App() {
       height: 542,
       width: 384,
     })
-    window.close()
+    close()
   }
 
   return (
     <main class="w-full flex flex-col justify-center items-center text-center p-6">
-      <div class="w-full grid grid-cols-2">
+      <div class="w-full grid grid-cols-3">
+        <a href="https://deno.com/" target="_blank" class="m-auto inline-flex p-4">
+          <img
+            src={denoLogo}
+            class="h-12 w-12 [will-change:filter] [transition:filter_300ms] hover:[filter:drop-shadow(0_0_2em_#000000aa)]"
+            alt="Deno logo"
+          />
+        </a>
         <a href="https://vitejs.dev" target="_blank" class="m-auto inline-flex p-4">
           <img
             src={viteLogo}
@@ -49,15 +57,15 @@ function App() {
           />
         </a>
       </div>
-      <h1 class="text-xl font-bold my-12">Vite + Solid</h1>
+      <h1 class="text-xl font-bold my-12">Deno + Vite + Solid</h1>
       <div class="flex gap-2 mb-4">
-        <button class={btnClass} onClick={() => setCount((count) => count + 1)}>
+        <button type="button" class={btnClass} onClick={() => setCount((count) => count + 1)}>
           Count is {count()}
         </button>
-        <button class={btnClass} onClick={sayHello}>
+        <button type="button" class={btnClass} onClick={sayHello}>
           Say hello
         </button>
-        <button class={btnClass} onClick={popout}>
+        <button type="button" class={btnClass} onClick={popout}>
           Popout
         </button>
       </div>
